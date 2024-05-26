@@ -288,6 +288,14 @@ impl Endpoint {
         }
     }
 
+    /// Sets the maximum frame size for HTTP2. Uses `hyper`'s default otherwise.
+    pub fn http2_max_frame_size(self, size: u32) -> Self {
+        Endpoint {
+            http2_max_frame_size: Some(size),
+            ..self
+        }
+    }
+
     /// Sets the executor used to spawn async tasks.
     ///
     /// Uses `tokio::spawn` by default.
