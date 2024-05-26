@@ -39,6 +39,7 @@ pub struct Endpoint {
     pub(crate) http2_keep_alive_interval: Option<Duration>,
     pub(crate) http2_keep_alive_timeout: Option<Duration>,
     pub(crate) http2_keep_alive_while_idle: Option<bool>,
+    pub(crate) http2_max_frame_size: Option<u32>,
     pub(crate) connect_timeout: Option<Duration>,
     pub(crate) http2_adaptive_window: Option<bool>,
     pub(crate) executor: SharedExec,
@@ -433,6 +434,7 @@ impl From<Uri> for Endpoint {
             connect_timeout: None,
             http2_adaptive_window: None,
             executor: SharedExec::tokio(),
+            http2_max_frame_size: None,
         }
     }
 }
